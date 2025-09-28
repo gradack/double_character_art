@@ -76,11 +76,11 @@ class Solution:
                 # Handle case where this is the last uncovered point
                 # (need a line through just this single point)
                 if first_point == num_points - 1:
-                    x = find_min_lines(covered_mask | (1 << first_point)) + 1
-                    if min_lines_needed < x:
+                    x = find_min_lines(covered_mask | (1 << first_point))
+                    if min_lines_needed < x + 1:
                         pass
                     else:
-                        min_lines_needed = x
+                        min_lines_needed = x + 1
 
                 # Once we've found an uncovered point,
                 # we've tried all possibilities starting from it
