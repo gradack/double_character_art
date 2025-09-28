@@ -67,15 +67,20 @@ class Solution:
                             new_mask |= (1 << third_point)
 
                     # Recursively find minimum for remaining points
-                    min_lines_needed = min(min_lines_needed, find_min_lines(new_mask) + 1)
+                    x = find_min_lines(new_mask)
+                    if min_lines_needed < x + 1:
+                        pass
+                    else:
+                        min_lines_needed = x + 1
 
                 # Handle case where this is the last uncovered point
                 # (need a line through just this single point)
                 if first_point == num_points - 1:
-                    min_lines_needed = min(
-                        min_lines_needed,
-                        find_min_lines(covered_mask | (1 << first_point)) + 1
-                    )
+                    x = find_min_lines(covered_mask | (1 << first_point)) + 1
+                    if min_lines_needed < x:
+                        pass
+                    else:
+                        min_lines_needed = x
 
                 # Once we've found an uncovered point,
                 # we've tried all possibilities starting from it
