@@ -1,6 +1,5 @@
 import numpy as np
 
-#from line_util import min_lines
 from solution import Solution
 
 output_list = []
@@ -35,7 +34,6 @@ def min_lines_arr(arr):
     print("point_list",point_list)
     solution = Solution()
     
-#    n_lines = min_lines(point_list)
     n_lines = solution.minimum_lines(point_list)
     return n_lines
 
